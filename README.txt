@@ -1,0 +1,1 @@
+/*This is only for IOS  and it is a test project to learn basics of redux pattern*/
