@@ -11,11 +11,11 @@ import {
 } from 'react-native';
 export default class ReactReduxTestings extends Component {
   render() {
-    console.log("Hello React Redux!!!!!!");
+    console.log("Hello React Redux!!!");
     return (
       <View style={styles.container}>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          React Redux implementation
         </Text>
       </View>
     );
