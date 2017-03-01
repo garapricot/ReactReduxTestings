@@ -11,23 +11,26 @@ const {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
+
 class AppContainer extends PureComponent{
   constructor(props){
     super(props)
-    this.state={recipeCount:0}
   }
-   incrementRecipeCount() {
-      this.setState({recipeCount:this.state.recipeCount+1});
-    }
+  
+  addRecipe(){
+  this.props.addRecipe();
+}
   render(){
     return <View>
     <Text style={{marginTop:21}}>
-      Hello From Redux!!!! Recipe Count: {this.state.recipeCount}
+      Hello From Redux!!!! Recipe Count: {this.props.recipeCount}
       </Text>
-      <TouchableHighlight onPress={()=>{this.incrementRecipeCount()}}>
+      <TouchableHighlight onPress={()=>{this.addRecipe()}}>
           <Text>Add Recipe</Text>
       </TouchableHighlight>
     </View>
   }
 }
-export default connect(()=>{return{}}, mapDispatchToProps)(AppContainer);
+export default connect((state)=>{return{
+  recipeCount:state.recipeCount
+}}, mapDispatchToProps)(AppContainer);
