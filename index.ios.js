@@ -4,6 +4,7 @@ import{createStore,applyMiddleware,combineReducers,compose} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import reducer from './app/reducers'
+import AppContainer from './app/containers/AppContainer'
 // middleware that logs actions
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__  });
 function configureStore(initialState) {
@@ -17,24 +18,12 @@ function configureStore(initialState) {
 }
     const store = configureStore({});
 import {
-  AppRegistry,
-  Text,
-  View
+  AppRegistry
 } from 'react-native';
-  class ReactReduxTestings extends Component {
-  render() {
-    return (
-      <View>
-        <Text>
-           React Redux implementation
-        </Text>
-      </View>
-    );
-  }
-}
+ 
   const App = () => (
   <Provider store={store}>
-    <ReactReduxTestings />
+    <AppContainer />
   </Provider>
 )
 AppRegistry.registerComponent('ReactReduxTestings', () => App);
