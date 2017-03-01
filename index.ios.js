@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {Provider} from 'react-redux';
 import{createStore,applyMiddleware,combineReducers,compose} from 'redux'
 import thunkMiddleware from 'redux-thunk'
@@ -18,7 +18,7 @@ function configureStore(initialState) {
 }
     const store = configureStore({});
 import {
-  AppRegistry
+  AppRegistry,
 } from 'react-native';
  
   const App = () => (
