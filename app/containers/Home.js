@@ -11,8 +11,11 @@ const {
   StyleSheet
 }=ReactNative
 class Home extends PureComponent{
+  searchPressed(){
+    this.props.fetchRecipes('bacon,cucumber,banana');
+  }
   render(){
-    return <View>
+    return <View style={{marginTop:20}}>
       <View>
       <TouchableHighlight onPress={()=>{this.searchPressed()}}>
         <Text>Search Recipes</Text>
