@@ -19,7 +19,6 @@ class Api {
     return this.xhr(route, params, 'DELETE')
   }
   static xhr(url) {
-    debugger;
     return fetch(url)
       .then((response) => response.json())
       .then((responseJson) => {
