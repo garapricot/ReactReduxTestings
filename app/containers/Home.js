@@ -12,7 +12,7 @@ const {
 }=ReactNative
 class Home extends PureComponent{
   searchPressed(){
-    this.props.fetchRecipes('bacon,cucumber,banana');
+    this.props.fetchRecipes();
   }
   render(){
     return <View style={{marginTop:20}}>
