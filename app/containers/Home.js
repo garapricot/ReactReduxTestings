@@ -11,6 +11,12 @@ const {
   StyleSheet
 }=ReactNative
 class Home extends PureComponent{
+  constructor(props){
+    super(props);
+    this.state={
+      moviesInput:''
+    }
+  }
   searchPressed(){
     this.props.fetchRecipes();
   }
@@ -21,6 +27,12 @@ class Home extends PureComponent{
     console.log(this.recipes());
     return <View style={styles.scene}>
       <View style={styles.searchSection}>
+        <TextInput style={styles.searchInput}
+          returnKeyType='search'
+          placeholder='Search Your Movie'
+          onChangeText={(moviesInput)=>this.setState({moviesInput})}
+          value={this.state.moviesInput}
+          />
       <TouchableHighlight onPress={()=>{this.searchPressed()}} style={styles.searchButton}>
         <Text>Search Movies</Text>
         </TouchableHighlight>
@@ -60,7 +72,7 @@ const styles = StyleSheet.create({
     height:20,
   },
   searchButton: {
-    flex: 0.3,
+    flex: 0.4,
   },
   searchInput: {
     flex: 0.7,
