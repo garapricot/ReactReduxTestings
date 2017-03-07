@@ -4,9 +4,10 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {ActionCreators} from '../actions'
 import Home from './Home'
+import ApplicationTabs from './ApplicationTabs'
 class AppContainer extends PureComponent{
   render(){
-    return <Home {...this.props}/>
+    return <ApplicationTabs {...this.props}/>
   }
 }
  function mapDispatchToProps(dispatch) {
