@@ -14,11 +14,18 @@ class Home extends PureComponent{
   constructor(props){
     super(props);
     this.state={
+      searching:false,
       moviesInput:''
     }
   }
   searchPressed(){
-    this.props.fetchRecipes();
+    this.setState({searching:true});
+    this.props.fetchRecipes(this.state.moviesInput)
+    .then(()=>
+    {
+      this.setState({searching:false});
+    }
+    );
   }
   recipes(){
     return Object.keys(this.props.searchedRecipes).map(key=>this.props.searchedRecipes[key]);
@@ -38,12 +45,13 @@ class Home extends PureComponent{
         </TouchableHighlight>
       </View>
       <ScrollView>
-      {this.recipes().map((recipe)=>{
+      {!this.state.searching&&this.recipes().map((recipe)=>{
         return  <View key={recipe.id}>
           <Image source={{uri:'http://www.movlenebi.ge/gallery/monika-beluchi-za-dolce-gabbana_5003.jpg'}} style={styles.resultImage}/>
           <Text style={styles.resultText}>{recipe.title}</Text>
           </View>
         })}
+        {this.state.searching? <Text>Searching...</Text>:null}
       </ScrollView>
     </View>
   }

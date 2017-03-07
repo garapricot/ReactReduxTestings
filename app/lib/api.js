@@ -26,7 +26,7 @@ class Api {
       })
       .catch((error) => {
         console.error(error);
-      });
+      });<span class="curicon cur-cur-amd"></span>
     
   }
 }
