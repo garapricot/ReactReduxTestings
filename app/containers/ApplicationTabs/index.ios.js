@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../../actions';
 import Home from '../Home';
+import About from '../About';
 
 class ApplicationTabs extends Component {
 
@@ -11,7 +12,9 @@ class ApplicationTabs extends Component {
     super(props)
     this.state = { index: 0 }
   }
-
+onPress(tabIndex){
+  this.props.setTab(tabIndex);
+}
  
 
   renderScene(component) {
@@ -29,7 +32,8 @@ class ApplicationTabs extends Component {
         <TabBarIOS.Item
           systemIcon="favorites"
           iconSize={25}
-         
+          onPress={()=>{return this.onPress(0);}}
+         selected={this.props.tabs.index===0}
           selectedIconName="favorites"
          >
             { this.renderScene(Home) }
@@ -37,10 +41,11 @@ class ApplicationTabs extends Component {
         <TabBarIOS.Item
           systemIcon="more"
           iconSize={25}
-          
+          onPress={()=> {return this.onPress(1)}}
+          selected={this.props.tabs.index===1}
           selectedIconName="more"
           >
-            
+             { this.renderScene(About) }
         </TabBarIOS.Item>
       </TabBarIOS>
     );
