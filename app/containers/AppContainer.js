@@ -8,6 +8,7 @@ import ApplicationTabs from './ApplicationTabs'
 class AppContainer extends PureComponent{
   render(){
     return <ApplicationTabs {...this.props}/>
+   // return <Home {...this.props}/>
   }
 }
  function mapDispatchToProps(dispatch) {

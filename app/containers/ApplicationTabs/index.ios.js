@@ -1,33 +1,60 @@
 import { View, TabBarIOS, TabBarItemIOS } from 'react-native';
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Home from '../Home'
-class ApplicationTabs extends PureComponent{
-  renderScene(component){
-    return <View style={{flex:1}}>
-        {React.createElement(component,this.props)}
-      </View>
+import { ActionCreators } from '../../actions';
+import Home from '../Home';
+
+class ApplicationTabs extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { index: 0 }
   }
-  render(){
-    return <TabBarIOS style={{flex:1}} >
-   <TabBarIOS.Item
+
+ 
+
+  renderScene(component) {
+    return (
+      <View style={ { flex: 1 } }>
+        { React.createElement(component, this.props) }
+      </View>
+    );
+  }
+
+  render() {
+    console.log(this.props);
+    return (
+      <TabBarIOS style={{flex: 1}} >
+        <TabBarIOS.Item
           systemIcon="favorites"
           iconSize={25}
-          >
+         
+          selectedIconName="favorites"
+         >
             { this.renderScene(Home) }
         </TabBarIOS.Item>
-      <TabBarIOS.Item
+        <TabBarIOS.Item
           systemIcon="more"
           iconSize={25}
+          
+          selectedIconName="more"
           >
-            { this.renderScene(Home) }
+            
         </TabBarIOS.Item>
-    </TabBarIOS>
+      </TabBarIOS>
+    );
   }
 }
-function mapStateRoProps(state){
-  return{
-    
-  }
+
+function mapStateToProps(state) {
+  return {
+    tabs: state.tabs
+  };
 }
-export default connect(mapStateRoProps)(ApplicationTabs)
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ApplicationTabs);
