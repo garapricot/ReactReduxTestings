@@ -10,8 +10,8 @@ const {
 } = NavigationExperimental
 
 const allTabs = [
-  (lastRoute) => lastRoute || { key: 'home', index: 0 },
-  (lastRoute) => lastRoute || { key: 'about', index: 1 },
+  (lastRoute) => lastRoute || Object.assign({ key: 'home', index: 0 }),
+  (lastRoute) => lastRoute || Object.assign({ key: 'about', index: 1 }),
 ];
 
 export const tabs = createReducer({ index: 0, key: 'home', routes: allTabs }, {
@@ -22,7 +22,8 @@ export const tabs = createReducer({ index: 0, key: 'home', routes: allTabs }, {
 
 export const navigationState = createReducer({ index: 0,
     routes: [
-      { key: 'ApplicationTabs',  },
+      { key: 'ApplicationTabs'  },
+      {key:'Detail'},
     ]
   }, {
 

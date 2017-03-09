@@ -31,6 +31,7 @@ class Home extends PureComponent{
     return Object.keys(this.props.searchedRecipes).map(key=>this.props.searchedRecipes[key]);
   }
   render(){
+    debugger;
     console.log(this.recipes());
     return <View style={styles.scene}>
       <View style={styles.searchSection}>
