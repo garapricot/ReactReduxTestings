@@ -22,7 +22,7 @@ class Detail extends Component {
     if (!recipe) { return null }
 
     return <View>
-      <TouchableHighlight style={ { flex: 1, paddingVertical: 20, backgroundColor: '#222' } } onPress={ () => { this.props.navigateBack() } }>
+      <TouchableHighlight style={ { flex: 1, paddingVertical: 20, backgroundColor: '#ffc3a0' } } onPress={ () => { this.props.navigateBack() } }>
         <Text style={{ color: '#FFF' } }>Go Back</Text>
       </TouchableHighlight>
       <View>

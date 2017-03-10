@@ -47,10 +47,15 @@ class Home extends PureComponent{
       </View>
       <ScrollView>
       {!this.state.searching&&this.recipes().map((recipe)=>{
-        return  <View key={recipe.id}>
+        return <TouchableHighlight key={recipe.id} 
+                 onPress={()=>{
+            this.props.navigate({key:'Detail',id:recipe.id})}
+          }>
+        <View>
           <Image source={{uri:'http://www.movlenebi.ge/gallery/monika-beluchi-za-dolce-gabbana_5003.jpg'}} style={styles.resultImage}/>
           <Text style={styles.resultText}>{recipe.title}</Text>
           </View>
+        </TouchableHighlight>  
         })}
         {this.state.searching? <Text>Searching...</Text>:null}
       </ScrollView>
