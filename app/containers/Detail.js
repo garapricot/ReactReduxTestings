@@ -22,13 +22,15 @@ class Detail extends Component {
     if (!recipe) { return null }
 
     return <View>
-      <TouchableHighlight style={ { flex: 1, paddingVertical: 20, backgroundColor: '#ffc3a0' } } onPress={ () => { this.props.navigateBack() } }>
-        <Text style={{ color: '#FFF' } }>Go Back</Text>
+      <View>
+         <TouchableHighlight style={{backgroundColor:'#222d4a'}}  onPress={ () => { this.props.navigateBack() } }>
+         <Text style={{paddingTop:30,paddingBottom:2, color: '#2b90f5'} }>Go Back</Text>
       </TouchableHighlight>
+      </View>
       <View>
         <Image source={ { uri: "http://bazavan.ro/wp-content/uploads/2017/01/monica-bellucci-100a.jpg" } } style={appStyle.resultImage} />
         <Text style={ appStyle.resultText } >{recipe.title}</Text>
-        <Text style={ { fontSize: 21 } } >{recipe.ingredients}</Text>
+        <Text style={ { fontSize: 21 } } >{recipe.id}</Text>
       </View>
     </View>
   }
