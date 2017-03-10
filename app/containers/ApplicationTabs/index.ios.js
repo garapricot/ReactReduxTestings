@@ -15,8 +15,6 @@ class ApplicationTabs extends Component {
 onPress(tabIndex){
   this.props.setTab(tabIndex);
 }
- 
-
   renderScene(component) {
     return (
       <View style={ { flex: 1 } }>
@@ -26,7 +24,7 @@ onPress(tabIndex){
   }
 
   render() {
-    console.log(this.props);
+  
     return (
       <TabBarIOS style={{flex: 1}} >
         <TabBarIOS.Item

@@ -10,17 +10,13 @@ import {
   Text,
   StyleSheet,
 } from 'react-native'
-
 class Detail extends Component {
-
   recipe() {
     return this.props.searchedRecipes[this.props.navigationParams.id] || null;
   }
-
   render() {
     const recipe = this.recipe();
     if (!recipe) { return null }
-
     return <View>
       <View>
          <TouchableHighlight style={{backgroundColor:'#222d4a'}}  onPress={ () => { this.props.navigateBack() } }>
@@ -35,17 +31,13 @@ class Detail extends Component {
     </View>
   }
 }
-
-
 function mapStateToProps(state) {
   return {
     searchedRecipes: state.searchedRecipes,
     navigationParams: state.navigationParams,
   };
 }
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);

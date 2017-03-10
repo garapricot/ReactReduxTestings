@@ -33,7 +33,6 @@ class AppContainer extends Component {
   }
 
   render() {
-    console.log(this.props);
    return (
       <NavigationTransitioner
         navigationState={this.props.navigationState}

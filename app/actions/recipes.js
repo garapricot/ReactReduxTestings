@@ -1,6 +1,5 @@
 import * as types from './types'
 import Api from '../lib/api'
-debugger;
 export function fetchRecipes(params) {
   return (dispatch, getState) => {
     return Api.get('http://www.movietrip.me/trips/mob/index/page/1')
